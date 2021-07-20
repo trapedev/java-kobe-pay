@@ -8,18 +8,23 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/scan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Send"
-            android:textSize="20sp">
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/remittance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
 
         </TextView>
 
@@ -27,8 +32,11 @@
             android:id="@+id/remittance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
             android:hint="Remittance"
-            android:inputType="text">
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/studentNumber"
+            tools:layout_editor_absoluteX="0dp">
 
         </EditText>
 
@@ -36,7 +44,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="from"
-            android:textSize="20sp">
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/studentNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/remittance"
+            app:layout_constraintVertical_bias="1.0">
 
         </TextView>
 
@@ -44,8 +58,11 @@
             android:id="@+id/studentNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
             android:hint="@string/studentNumber"
-            android:inputType="text">
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/destination"
+            tools:layout_editor_absoluteX="0dp">
 
         </EditText>
 
@@ -53,14 +70,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="to"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/destination"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/studentNumber"
+            app:layout_constraintVertical_bias="1.0">
+
+        </TextView>
 
         <EditText
             android:id="@+id/destination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Destination number"
-            android:inputType="text">
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/GenerateQR">
 
         </EditText>
 
@@ -69,19 +95,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="GenerateQR_onClick"
+            android:text="@string/generateQR"
             app:backgroundTint="#0893cf"
-            android:text="@string/generateQR" />
+            app:layout_constraintBottom_toTopOf="@+id/test" />
 
         <Button
             android:id="@+id/test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="Test_onClick"
+            android:text="BALANCE HISTORY"
             app:backgroundTint="#0893cf"
-            android:text="BALANCE HISTORY"/>
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/tab1_textNo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Here is a space of cashing."
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/remittance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.355" />
 
 
-    </LinearLayout>
-    
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </RelativeLayout>
