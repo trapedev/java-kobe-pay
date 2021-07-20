@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,9 +10,10 @@
 
     <LinearLayout
         android:id="@+id/scan"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,8 +27,8 @@
             android:id="@+id/remittance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Input the remittance">
+            android:hint="Input the remittance"
+            android:inputType="text">
 
         </EditText>
 
@@ -42,8 +44,8 @@
             android:id="@+id/studentNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="@string/studentNumber">
+            android:hint="@string/studentNumber"
+            android:inputType="text">
 
         </EditText>
 
@@ -51,15 +53,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="to"
-            android:textSize="20sp">
-        </TextView>
+            android:textSize="20sp"></TextView>
 
         <EditText
             android:id="@+id/destination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Input the destination number">
+            android:hint="Input the destination number"
+            android:inputType="text">
 
         </EditText>
 
@@ -68,7 +69,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="GenerateQR_onClick"
-            android:text="@string/generateQR"/>
+            app:backgroundTint="#0893cf"
+            android:text="@string/generateQR" />
+
+        <Button
+            android:id="@+id/test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="Test_onClick"
+            app:backgroundTint="#0893cf"
+            android:text="BALANCE HISTORY"/>
 
 
     </LinearLayout>

@@ -2,15 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="to.msn.wings.qrandbarcodescanner">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-feature android:name="android.hardware.camera"/>
-    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Kobe Pay"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QrAndBarcodeScanner">
@@ -21,21 +21,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ScanActivity">
-
-        </activity>
-        <activity android:name=".CaptureAct"
+        <activity android:name=".ScanActivity" />
+        <activity
+            android:name=".CaptureAct"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
-            android:windowSoftInputMode="stateAlwaysHidden">
-
-        </activity>
-        <activity android:name=".GenerateQR">
-
-        </activity>
-        <activity android:name=".scanCode">
-
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".GenerateQR" />
+        <activity android:name=".scanCode" />
+        <activity
+            android:name=".Test"
+            android:label="Balance History"/>
+        <activity android:name=".UpdateActivity"
+            android:parentActivityName=".Test"/>
+        <activity
+            android:name=".AddActivity"
+            android:label="Add"
+            android:parentActivityName=".Test" />
     </application>
 
 </manifest>

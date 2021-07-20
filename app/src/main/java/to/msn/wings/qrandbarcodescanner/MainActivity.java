@@ -2,6 +2,7 @@ package to.msn.wings.qrandbarcodescanner;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -13,6 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -24,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabItem tab1, tab2, tab3;
     public PageAdapter pagerAdapter;
+
+    RecyclerView recyclerView;
+    FloatingActionButton add_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -121,8 +128,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    //テストコード
+    public void Test_onClick(View v){
+        //Testへのインテントを作成
+        Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.Test.class);
+        startActivity(i);
+    }
+    //ここまで
+
     public void scanCode_onClick(View v){
         Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.scanCode.class);
         startActivity(i);
     }
+
 }
