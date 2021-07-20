@@ -3,6 +3,8 @@ package to.msn.wings.qrandbarcodescanner;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -53,10 +55,22 @@ public class scanCode extends AppCompatActivity {
                 dialog.show();
             }
             else{
-                Toast.makeText(this, "No Result", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "No Result", Toast.LENGTH_SHORT).show();
             }
         }else{
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    //"Scan again"をクリックした場合のイベント
+    public void scanCode_onClick(View v){
+        Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.scanCode.class);
+        startActivity(i);
+    }
+
+    //"Back"をクリックした場合のイベント
+    public void backTab2_onClick(View v){
+        Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.MainActivity.class);
+        startActivity(i);
     }
 }
