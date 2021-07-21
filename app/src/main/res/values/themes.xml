@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <!--colorPrimaryで画面の上の部分ぼ色を調節できる-->
         <item name="colorPrimary">#0893cf</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">#0893cf</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
