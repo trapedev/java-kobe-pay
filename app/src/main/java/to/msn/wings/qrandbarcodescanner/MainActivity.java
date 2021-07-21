@@ -3,19 +3,14 @@ package to.msn.wings.qrandbarcodescanner;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -117,7 +112,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void GenerateQR_onClick(View v){
+    /*
+    //QGコードを生成する関数への遷移
+    public void CreateQR_onClick(View v){
         Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.GenerateQR.class);
         EditText remittance = findViewById(R.id.remittance);
         i.putExtra("remittance", remittance.getText().toString());
@@ -127,20 +124,29 @@ public class MainActivity extends AppCompatActivity {
         i.putExtra("destination", destination.getText().toString());
         startActivity(i);
     }
+     */
 
-    //テストコード
-    public void Test_onClick(View v){
-        //Testへのインテントを作成
-        Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.Test.class);
+
+    public void To_QR_Screen_onClick(View v){
+        //SetDataOfQRアクティビティへの遷移
+        Intent i = new Intent(this, SetDataOfQR.class);
         startActivity(i);
     }
-    //ここまで
 
+    //データベース画面への遷移
+    public void To_DatabaseAdd_onClick(View v){
+        //DatabaseAddへのインテントを作成
+        Intent i = new Intent(this, DatabaseAdd.class);
+        startActivity(i);
+    }
+
+    //QRコードをスキャンする関数への遷移
     public void scanCode_onClick(View v){
         Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.scanCode.class);
         startActivity(i);
     }
 
+    //Bluetooth通信システムへの遷移
     public void BLE_onClick(View v){
         Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.BLE_MainActivity.class);
         startActivity(i);

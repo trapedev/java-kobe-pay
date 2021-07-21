@@ -31,19 +31,20 @@
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".GenerateQR" />
+        <activity android:name=".CreateQR" />
         <activity android:name=".scanCode" />
         <activity
-            android:name=".Test"
+            android:name=".DatabaseAdd"
             android:label="Balance History" />
         <activity
             android:name=".UpdateActivity"
-            android:parentActivityName=".Test" />
+            android:parentActivityName=".DatabaseAdd" />
         <activity
             android:name=".AddActivity"
             android:label="Add"
-            android:parentActivityName=".Test" />
+            android:parentActivityName=".DatabaseAdd" />
         <activity android:name=".BLE_MainActivity" />
+        <activity android:name=".SetDataOfQR"></activity>
     </application>
 
 </manifest>

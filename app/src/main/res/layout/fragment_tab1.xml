@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <!--TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Send"
@@ -80,38 +80,46 @@
 
         </TextView>
 
-        <EditText
-            android:id="@+id/destination"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Destination number"
-            android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@+id/GenerateQR">
-
-        </EditText>
 
         <Button
             android:id="@+id/GenerateQR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
             android:onClick="GenerateQR_onClick"
             android:text="@string/generateQR"
             app:backgroundTint="#0893cf"
-            app:layout_constraintBottom_toTopOf="@+id/test" />
+            app:layout_constraintBottom_toTopOf="@+id/balance"
+            tools:layout_editor_absoluteX="0dp" />
 
-        <Button
-            android:id="@+id/test"
+        <EditText
+            android:id="@+id/destination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="Test_onClick"
-            android:text="BALANCE HISTORY"
+            android:layout_marginBottom="76dp"
+            android:hint="Destination number"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/GenerateQR"
+            tools:layout_editor_absoluteX="0dp">
+
+        </EditText-->
+
+        <Button
+            android:id="@+id/balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="144dp"
+            android:onClick="To_DatabaseAdd_onClick"
+            android:text="BALANCE"
             app:backgroundTint="#0893cf"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="-16dp" />
 
         <TextView
             android:id="@+id/tab1_textNo1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="212dp"
             android:text="Here is a space of cashing."
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/remittance"
@@ -120,6 +128,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.355" />
+
+        <Button
+            android:id="@+id/scanQRcode_tab1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:onClick="scanCode_onClick"
+            android:text="Scan QR"
+            app:backgroundTint="#0893cf"
+            app:layout_constraintBottom_toTopOf="@+id/balance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/GenerateQR" />
+
+        <Button
+            android:id="@+id/to_qr_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:onClick="To_QR_Screen_onClick"
+            android:text="Create QR"
+            app:backgroundTint="#0893cf"
+            app:layout_constraintBottom_toTopOf="@+id/scanQRcode_tab1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/destination"
+            app:layout_constraintVertical_bias="0.959" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -72,7 +72,7 @@ public class ScanActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void GenerateQR_onClick(View v){
-        Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.GenerateQR.class);
+        Intent i = new Intent(this, CreateQR.class);
         EditText txtName = findViewById(R.id.txtName);
         i.putExtra("txtName", txtName.getText().toString());
         startActivity(i);

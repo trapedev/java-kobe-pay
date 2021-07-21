@@ -68,6 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/connect"
+            android:backgroundTint="#0893cf"
             android:textSize="18sp"/>
 
         <Space
@@ -79,6 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/disconnect"
+            android:backgroundTint="#0893cf"
             android:textSize="18sp"/>
     </LinearLayout>
 
@@ -135,6 +137,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hello"
+            android:backgroundTint="#0893cf"
             android:textSize="18sp"/>
 
         <Space
@@ -146,6 +149,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/world"
+            android:backgroundTint="#0893cf"
             android:textSize="18sp"/>
     </LinearLayout>
 
