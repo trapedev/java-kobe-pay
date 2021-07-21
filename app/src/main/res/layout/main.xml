@@ -18,19 +18,22 @@
             android:id="@+id/Tab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cash" />
+            android:icon="@drawable/ic_tab1_cash"/>
+            //android:text="Cash"
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/Tab2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Attendance" />
+            android:icon="@drawable/ic_tab2_attendance"/>
+            //android:text="Attendance"
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/Tab3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Account" />
+            android:icon="@drawable/ic_tab3_account"/>
+            //android:text="Account"
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
