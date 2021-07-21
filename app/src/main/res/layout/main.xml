@@ -18,7 +18,7 @@
             android:id="@+id/Tab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_tab1_cash"/>
+            android:icon="@drawable/ic_tab1_cash" />
             //android:text="Cash"
 
         <com.google.android.material.tabs.TabItem

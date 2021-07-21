@@ -141,4 +141,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void BLE_onClick(View v){
+        Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.BLE_MainActivity.class);
+        startActivity(i);
+    }
+
 }

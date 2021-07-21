@@ -5,7 +5,10 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- Bluetoothの機能を使用するためのパーミッションの宣言 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- Bluetoothデバイスのスキャン機能を使用するためのパーミッションとして、位置情報のパーミッションがAndroid 6.0から必要になった -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QrAndBarcodeScanner">
+        <activity android:name=".DeviceListActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,13 +35,15 @@
         <activity android:name=".scanCode" />
         <activity
             android:name=".Test"
-            android:label="Balance History"/>
-        <activity android:name=".UpdateActivity"
-            android:parentActivityName=".Test"/>
+            android:label="Balance History" />
+        <activity
+            android:name=".UpdateActivity"
+            android:parentActivityName=".Test" />
         <activity
             android:name=".AddActivity"
             android:label="Add"
             android:parentActivityName=".Test" />
+        <activity android:name=".BLE_MainActivity" />
     </application>
 
 </manifest>
