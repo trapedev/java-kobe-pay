@@ -164,6 +164,7 @@ public class DeviceListActivity extends AppCompatActivity implements AdapterView
         }
     };
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
