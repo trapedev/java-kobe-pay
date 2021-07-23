@@ -1,4 +1,4 @@
-package to.msn.wings.qrandbarcodescanner;
+package to.msn.wings.qrandbarcodescanner.QRscanner;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import to.msn.wings.qrandbarcodescanner.QRscanner.CreateQR;
+import to.msn.wings.qrandbarcodescanner.R;
 
 public class SetDataOfQR extends AppCompatActivity {
     @Override

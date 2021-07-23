@@ -1,4 +1,4 @@
-package to.msn.wings.qrandbarcodescanner;
+package to.msn.wings.qrandbarcodescanner.BLE;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -19,7 +19,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,6 +26,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
+
+import to.msn.wings.qrandbarcodescanner.R;
 
 public class BLE_MainActivity extends AppCompatActivity implements View.OnClickListener{
 

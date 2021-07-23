@@ -1,4 +1,4 @@
-package to.msn.wings.qrandbarcodescanner;
+package to.msn.wings.qrandbarcodescanner.QRscanner;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -15,6 +15,8 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 
 import java.security.MessageDigest;
+
+import to.msn.wings.qrandbarcodescanner.R;
 
 public class CreateQR extends AppCompatActivity {
     @Override

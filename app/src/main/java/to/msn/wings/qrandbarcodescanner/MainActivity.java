@@ -17,6 +17,11 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import to.msn.wings.qrandbarcodescanner.BLE.BLE_MainActivity;
+import to.msn.wings.qrandbarcodescanner.QRscanner.SetDataOfQR;
+import to.msn.wings.qrandbarcodescanner.QRscanner.scanCode;
+import to.msn.wings.qrandbarcodescanner.tab.PageAdapter;
+
 public class MainActivity extends AppCompatActivity {
 
     private TabLayout tablayout;
@@ -142,13 +147,13 @@ public class MainActivity extends AppCompatActivity {
 
     //QRコードをスキャンする関数への遷移
     public void scanCode_onClick(View v){
-        Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.scanCode.class);
+        Intent i = new Intent(this, scanCode.class);
         startActivity(i);
     }
 
     //Bluetooth通信システムへの遷移
     public void BLE_onClick(View v){
-        Intent i = new Intent(this, to.msn.wings.qrandbarcodescanner.BLE_MainActivity.class);
+        Intent i = new Intent(this, BLE_MainActivity.class);
         startActivity(i);
     }
 

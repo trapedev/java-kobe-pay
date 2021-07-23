@@ -22,7 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QrAndBarcodeScanner">
-        <activity android:name=".DeviceListActivity"></activity>
+        <activity android:name=".BLE.DeviceListActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,14 +30,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ScanActivity" />
+        <activity android:name=".QRscanner.ScanActivity" />
         <activity
             android:name=".CaptureAct"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".CreateQR" />
-        <activity android:name=".scanCode" />
+        <activity android:name=".QRscanner.CreateQR" />
+        <activity android:name=".QRscanner.scanCode" />
         <activity
             android:name=".DatabaseAdd"
             android:label="Balance History" />
@@ -48,8 +48,8 @@
             android:name=".AddActivity"
             android:label="Add"
             android:parentActivityName=".DatabaseAdd" />
-        <activity android:name=".BLE_MainActivity" />
-        <activity android:name=".SetDataOfQR"></activity>
+        <activity android:name=".BLE.BLE_MainActivity" />
+        <activity android:name=".QRscanner.SetDataOfQR"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package to.msn.wings.qrandbarcodescanner;
+package to.msn.wings.qrandbarcodescanner.BLE;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import to.msn.wings.qrandbarcodescanner.R;
 
 public class DeviceListActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
     static class DeviceListAdapter extends BaseAdapter
