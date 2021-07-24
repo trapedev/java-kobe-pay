@@ -32,7 +32,7 @@
         </activity>
         <activity android:name=".QRscanner.ScanActivity" />
         <activity
-            android:name=".CaptureAct"
+            android:name=".QRscanner.CaptureAct"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
             android:windowSoftInputMode="stateAlwaysHidden" />
@@ -50,6 +50,11 @@
             android:parentActivityName=".DatabaseAdd" />
         <activity android:name=".BLE.BLE_MainActivity" />
         <activity android:name=".QRscanner.SetDataOfQR"></activity>
+        <activity android:name=".view.BLEActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="Kobe Pay"/>
+        <activity android:name=".view.RequestPermissionsActivity"/>
+        <service android:name=".service.BluetoothLeService" android:enabled="true"/>
     </application>
 
 </manifest>
