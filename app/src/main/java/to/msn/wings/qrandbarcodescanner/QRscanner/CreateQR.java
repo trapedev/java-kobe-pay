@@ -24,22 +24,28 @@ public class CreateQR extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.generate_main);
 
-        //インテントを取得
+        /**インテントを取得*/
         Intent i = getIntent();
         //String txtName = i.getStringExtra("txtName");
-        String remittance = i.getStringExtra("remittance");
-        String studentNumber = i.getStringExtra("studentNumber");
-        String destination = i.getStringExtra("destination");
-        //取得したデータをハッシュ化
-        //String data = SHA256(txtName);
-        String txtName = remittance + studentNumber + destination;
-        String data = SHA256(txtName);
+        String payment = i.getStringExtra("remittance");
+        String payer = i.getStringExtra("studentNumber");
+        String payee = i.getStringExtra("destination");
+        String dataType = i.getStringExtra("dataType");
 
-        // QRCodeの作成
+        /**取得したデータをハッシュ化*/
+        //String data = SHA256(txtName);
+        String payeeHash = SHA256(payee);
+        String payerHash = SHA256(payer);
+        //payment = SHA256(payment);
+        String txtName = payeeHash + payerHash + payment;
+        String data = dataType + txtName;
+
+        /**QRCodeの作成*/
         //Bitmap qrCodeBitmap = this.createQRCode("http://nlinks-engineers.hatenablog.com/");
         Bitmap qrCodeBitmap = this.createQRCode(data);
+        //Bitmap qrCodeBitmap = this.createQRCode(txtName);
 
-        // QRCodeの作成に成功した場合
+        /**QRCodeの作成に成功した場合*/
         if (qrCodeBitmap != null)
         {
             // 結果をImageViewに表示

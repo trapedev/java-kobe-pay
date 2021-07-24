@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import to.msn.wings.qrandbarcodescanner.CaptureAct;
 import to.msn.wings.qrandbarcodescanner.R;
 
 public class ScanActivity extends AppCompatActivity implements View.OnClickListener {

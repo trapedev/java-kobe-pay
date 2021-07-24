@@ -17,7 +17,7 @@ public class SetDataOfQR extends AppCompatActivity {
         setContentView(R.layout.activity_create_qr);
     }
 
-    //QGコードを生成する関数への遷移
+    /**決済に関するQGコードを生成する関数への遷移*/
     public void CreateQR_onClick(View v){
         Intent i = new Intent(this, CreateQR.class);
         EditText remittance = findViewById(R.id.remittance);
@@ -26,7 +26,14 @@ public class SetDataOfQR extends AppCompatActivity {
         i.putExtra("studentNumber", studentNumber.getText().toString());
         EditText destination = findViewById(R.id.destination);
         i.putExtra("destination", destination.getText().toString());
+        /**決済データである事を示すデータ番号001を追加*/
+        i.putExtra("dataType", "001");
         startActivity(i);
+    }
+
+    /**戻るボタン*/
+    public void Back_onClick(View v){
+        finish();
     }
 
 }
