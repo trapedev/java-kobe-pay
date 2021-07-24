@@ -18,9 +18,11 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import to.msn.wings.qrandbarcodescanner.BLE.BLE_MainActivity;
+import to.msn.wings.qrandbarcodescanner.QRscanner.CaptureAct;
 import to.msn.wings.qrandbarcodescanner.QRscanner.SetDataOfQR;
 import to.msn.wings.qrandbarcodescanner.QRscanner.scanCode;
 import to.msn.wings.qrandbarcodescanner.tab.PageAdapter;
+import to.msn.wings.qrandbarcodescanner.view.BLEActivity;
 
 public class MainActivity extends AppCompatActivity {
 
