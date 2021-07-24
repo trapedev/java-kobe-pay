@@ -29,7 +29,7 @@ public class DatabaseAdd extends AppCompatActivity {
     TextView no_data;
 
     MyDatabaseHelper myDB;
-    ArrayList<String> book_id, book_title, book_author, book_pages;
+    ArrayList<String> payment_id, payee, payer, payment;
     CustomAdapter customAdapter;
 
     @Override
@@ -50,14 +50,14 @@ public class DatabaseAdd extends AppCompatActivity {
         });
 
         myDB = new MyDatabaseHelper(DatabaseAdd.this);
-        book_id = new ArrayList<>();
-        book_title = new ArrayList<>();
-        book_author = new ArrayList<>();
-        book_pages = new ArrayList<>();
+        payment_id = new ArrayList<>();
+        payee = new ArrayList<>();
+        payer = new ArrayList<>();
+        payment = new ArrayList<>();
 
         storeDataInArrays();
 
-        customAdapter = new CustomAdapter(DatabaseAdd.this, this, book_id, book_title, book_author, book_pages);
+        customAdapter = new CustomAdapter(DatabaseAdd.this, this, payment_id, payee, payer, payment);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(DatabaseAdd.this));
     }
@@ -83,10 +83,10 @@ public class DatabaseAdd extends AppCompatActivity {
         }
         else{
             while (cursor.moveToNext()){
-                book_id.add(cursor.getString(0));
-                book_title.add(cursor.getString(1));
-                book_author.add(cursor.getString(2));
-                book_pages.add(cursor.getString(3));
+                payment_id.add(cursor.getString(0));
+                payee.add(cursor.getString(1));
+                payer.add(cursor.getString(2));
+                payment.add(cursor.getString(3));
             }
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);
