@@ -54,6 +54,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:label="Kobe Pay"/>
         <activity android:name=".view.RequestPermissionsActivity"/>
+        <activity android:name=".AddCashDataActivity" />
         <service android:name=".service.BluetoothLeService" android:enabled="true"/>
     </application>
 
