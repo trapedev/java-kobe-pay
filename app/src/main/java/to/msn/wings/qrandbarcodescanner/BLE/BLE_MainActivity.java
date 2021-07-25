@@ -33,10 +33,10 @@ public class BLE_MainActivity extends AppCompatActivity implements View.OnClickL
 
     static public class BluetoothService
     {
-        // 定数（Bluetooth UUID）
+        /**定数（Bluetooth UUID）*/
         private static final UUID UUID_SPP = UUID.fromString( "00001101-0000-1000-8000-00805f9b34fb" );
 
-        // 定数
+        /** 定数*/
         public static final int MESSAGE_STATECHANGE    = 1;
         public static final int MESSAGE_READ           = 2;
         public static final int MESSAGE_WRITTEN        = 3;
@@ -48,19 +48,19 @@ public class BLE_MainActivity extends AppCompatActivity implements View.OnClickL
         public static final int STATE_DISCONNECT_START = 5;
         public static final int STATE_DISCONNECTED     = 6;
 
-        // メンバー変数
+        /**メンバー変数*/
         private int              mState;
         private ConnectionThread mConnectionThread;
         private Handler mHandler;
 
-        // 接続時処理用のスレッド
+        /** 接続時処理用のスレッド*/
         private class ConnectionThread extends Thread
         {
             private BluetoothSocket mBluetoothSocket;
             private InputStream mInput;
             private OutputStream mOutput;
 
-            // コンストラクタ
+            /**コンストラクタ*/
             public ConnectionThread( BluetoothDevice bluetoothdevice )
             {
                 try
@@ -75,7 +75,7 @@ public class BLE_MainActivity extends AppCompatActivity implements View.OnClickL
                 }
             }
 
-            // 処理
+            /**処理*/
             public void run()
             {
                 while( STATE_DISCONNECTED != mState )
@@ -84,17 +84,17 @@ public class BLE_MainActivity extends AppCompatActivity implements View.OnClickL
                     {
                         case STATE_NONE:
                             break;
-                        case STATE_CONNECT_START:    // 接続開始
+                        case STATE_CONNECT_START:    /**接続開始*/
                             try
                             {
-                                // BluetoothSocketオブジェクトを用いて、Bluetoothデバイスに接続を試みる。
+                                /**BluetoothSocketオブジェクトを用いて、Bluetoothデバイスに接続を試みる*/
                                 mBluetoothSocket.connect();
                             }
                             catch( IOException e )
-                            {    // 接続失敗
+                            {    /**接続失敗*/
                                 Log.d( "BluetoothService", "Failed : mBluetoothSocket.connect()" );
                                 setState( STATE_CONNECT_FAILED );
-                                cancel();    // スレッド終了。
+                                cancel();    /**スレッド終了*/
                                 return;
                             }
                             // 接続成功
@@ -308,9 +308,9 @@ public class BLE_MainActivity extends AppCompatActivity implements View.OnClickL
                             ( (TextView)findViewById( R.id.textview_read ) ).setText( new String( mReadBuffer, 0, mReadBufferCounter ) );
                             mReadBufferCounter = 0;
                         }
-                        else if( '\n' == c )
+                        else if('\n' == c )
                         {
-                            ;    // 何もしない
+                            // 何もしない
                         }
                         else
                         {    // 途中
@@ -458,12 +458,17 @@ public class BLE_MainActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-    // オプションメニュー作成時の処理
+    /**オプションメニュー作成時の処理*/
     @Override
     public boolean onCreateOptionsMenu( Menu menu )
     {
         getMenuInflater().inflate( R.menu.activity_ble_main, menu );
         return true;
+    }
+
+    /**layout.activiti_ble_mainでの戻る関数*/
+    public void back_onClick(View v){
+        finish();
     }
 
     // オプションメニューのアイテム選択時の処理
@@ -481,29 +486,28 @@ public class BLE_MainActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
-    public void onClick( View v )
-    {
-        if( mButton_Connect.getId() == v.getId() )
-        {
+    public void onClick( View v ) {
+
+        if( mButton_Connect.getId() == v.getId() ) {
             mButton_Connect.setEnabled( false );    // 接続ボタンの無効化（連打対策）
             connect();            // 接続
             return;
         }
-        if( mButton_Disconnect.getId() == v.getId() )
-        {
+
+        if( mButton_Disconnect.getId() == v.getId() ) {
             mButton_Disconnect.setEnabled( false );    // 切断ボタンの無効化（連打対策）
             disconnect();            // 切断
             return;
         }
-        if( mButton_WriteHello.getId() == v.getId() )
-        {
+
+        if( mButton_WriteHello.getId() == v.getId() ) {
             mButton_WriteHello.setEnabled( false );    // 文字列送信ボタンの無効化（連打対策）
             mButton_WriteWorld.setEnabled( false );    // 文字列送信ボタンの無効化（連打対策）
             write( "Hello" );
             return;
         }
-        if( mButton_WriteWorld.getId() == v.getId() )
-        {
+
+        if( mButton_WriteWorld.getId() == v.getId() ) {
             mButton_WriteHello.setEnabled( false );    // 文字列送信ボタンの無効化（連打対策）
             mButton_WriteWorld.setEnabled( false );    // 文字列送信ボタンの無効化（連打対策）
             write( "World" );
@@ -511,49 +515,50 @@ public class BLE_MainActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    // 接続
-    private void connect()
-    {
+    /**接続*/
+    private void connect() {
+
         if( mDeviceAddress.equals( "" ) )
-        {    // DeviceAddressが空の場合は処理しない
+        {    /**DeviceAddressが空の場合は処理しない*/
             return;
         }
 
         if( null != mBluetoothService )
-        {    // mBluetoothServiceがnullでないなら接続済みか、接続中。
+        {    /**mBluetoothServiceがnullでないなら接続済みか、接続中*/
             return;
         }
 
-        // 接続
+        /**接続*/
         BluetoothDevice device = mBluetoothAdapter.getRemoteDevice( mDeviceAddress );
         mBluetoothService = new BluetoothService( this, mHandler, device );
         mBluetoothService.connect();
     }
 
-    // 切断
-    private void disconnect()
-    {
+    /**切断*/
+    private void disconnect() {
         if( null == mBluetoothService )
-        {    // mBluetoothServiceがnullなら切断済みか、切断中。
+        {    /**mBluetoothServiceがnullなら切断済みか、切断中。*/
             return;
         }
 
-        // 切断
+        /**切断*/
         mBluetoothService.disconnect();
         mBluetoothService = null;
     }
-    // 文字列送信
+
+
+    /**文字列送信*/
     private void write( String string )
     {
         if( null == mBluetoothService )
-        {    // mBluetoothServiceがnullなら切断済みか、切断中。
+        {    /**mBluetoothServiceがnullなら切断済みか、切断中*/
             return;
         }
 
-        // 終端に改行コードを付加
+        /**終端に改行コードを付加*/
         String stringSend = string + "\r\n";
 
-        // バイト列送信
+        /**バイト列送信*/
         mBluetoothService.write( stringSend.getBytes() );
     }
 

@@ -26,13 +26,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import to.msn.wings.qrandbarcodescanner.MainActivity;
 import to.msn.wings.qrandbarcodescanner.R;
 
 public class DeviceListActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
     static class DeviceListAdapter extends BaseAdapter
     {
-        private ArrayList<BluetoothDevice> mDeviceList;
-        private LayoutInflater mInflator;
+        private final ArrayList<BluetoothDevice> mDeviceList;
+        private final LayoutInflater mInflator;
 
         public DeviceListAdapter( Activity activity )
         {
@@ -148,7 +149,7 @@ public class DeviceListActivity extends AppCompatActivity implements AdapterView
                 } );
                 return;
             }
-            // Bluetooth端末検索終了
+            /** Bluetooth端末検索終了*/
             if( BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals( action ) )
             {
                 runOnUiThread( new Runnable()
@@ -161,7 +162,7 @@ public class DeviceListActivity extends AppCompatActivity implements AdapterView
                         invalidateOptionsMenu();
                     }
                 } );
-                return;
+                //return;
             }
         }
     };
@@ -172,16 +173,16 @@ public class DeviceListActivity extends AppCompatActivity implements AdapterView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_list);
 
-        // 戻り値の初期化
+        /**戻り値の初期化*/
         setResult( Activity.RESULT_CANCELED );
 
-        // リストビューの設定
+        /**リストビューの設定*/
         mDeviceListAdapter = new DeviceListAdapter( this ); // ビューアダプターの初期化
         ListView listView = (ListView)findViewById( R.id.devicelist );    // リストビューの取得
         listView.setAdapter( mDeviceListAdapter );    // リストビューにビューアダプターをセット
         listView.setOnItemClickListener( this ); // クリックリスナーオブジェクトのセット
 
-        // Bluetoothアダプタの取得
+        /**Bluetoothアダプタの取得*/
         BluetoothManager bluetoothManager = (BluetoothManager)getSystemService( Context.BLUETOOTH_SERVICE );
         mBluetoothAdapter = bluetoothManager.getAdapter();
         if( null == mBluetoothAdapter )
@@ -315,6 +316,7 @@ public class DeviceListActivity extends AppCompatActivity implements AdapterView
     @Override
     public boolean onOptionsItemSelected( MenuItem item )
     {
+        /*
         switch( item.getItemId() )
         {
             case R.id.menuitem_scan:
@@ -324,6 +326,17 @@ public class DeviceListActivity extends AppCompatActivity implements AdapterView
                 stopScan();    // スキャンの停止
                 break;
         }
+         */
+        if(item.getItemId() == R.id.menuitem_scan){
+            startScan();
+        }
+        else if(item.getItemId() == R.id.menuitem_stop){
+            stopScan();
+        }
         return true;
+    }
+
+    public void back_onClick(View v){
+        finish();
     }
 }
