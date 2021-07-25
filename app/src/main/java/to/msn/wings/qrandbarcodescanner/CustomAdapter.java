@@ -16,7 +16,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
@@ -24,7 +27,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private Activity activity;
     private ArrayList payment_id, payee, payer, payment;
 
-    /*
+    /**
     定義
     payment_id = 支払いID
     payee = 支払先
@@ -32,6 +35,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     payment = 支払額
     */
 
+    /**コンストラクタ*/
     CustomAdapter(Activity activity,
                   Context context,
                   ArrayList payment_id,
@@ -54,6 +58,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         return new MyViewHolder(view);
     }
 
+    /**
+     * 現在日時をyyyy/MM/dd HH:mm:ss形式で取得
+     */
+    public static String getNowDate(){
+        final DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        final Date date = new Date(System.currentTimeMillis());
+        return df.format(date);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
@@ -61,7 +74,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.payee_txt.setText(String.valueOf(payee.get(position)));
         holder.payer_txt.setText(String.valueOf(payer.get(position)));
         holder.payment_txt.setText(String.valueOf(payment.get(position)));
-        //Recyclerview onClickListener
+        holder.datetime_txt.setText(getNowDate());
+        /**Recyclerview onClickListener*/
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +98,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView payment_id_txt, payee_txt, payer_txt, payment_txt;
+        TextView payment_id_txt, payee_txt, payer_txt, payment_txt, datetime_txt;
         LinearLayout mainLayout;
 
         MyViewHolder(@NonNull View itemView) {
@@ -93,8 +107,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             payee_txt = itemView.findViewById(R.id.payee_txt);
             payer_txt = itemView.findViewById(R.id.payer_txt);
             payment_txt = itemView.findViewById(R.id.payment_txt);
+            datetime_txt = itemView.findViewById(R.id.datetime_txt);
             mainLayout = itemView.findViewById(R.id.mainLayout);
-            //Animate Recyclerview
+            /**Animate Recyclerview*/
             Animation translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
             mainLayout.setAnimation(translate_anim);
         }

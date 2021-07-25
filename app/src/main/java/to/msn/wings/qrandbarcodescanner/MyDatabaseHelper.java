@@ -9,6 +9,10 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
@@ -41,13 +45,23 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addBook(String title, String author, int pages){
+    /**
+     * 現在日時をyyyy/MM/dd HH:mm:ss形式で取得
+     */
+    public static String getNowDate(){
+        final DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        final Date date = new Date(System.currentTimeMillis());
+        return df.format(date);
+    }
+
+    /**データを追加する関数*/
+    void addBook(String payee, String payer, int payment){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(COLUMN_PAYEE, title);
-        cv.put(COLUMN_PAYER, author);
-        cv.put(COLUMN_PAYMENT, pages);
+        cv.put(COLUMN_PAYEE, payee);
+        cv.put(COLUMN_PAYER, payer);
+        cv.put(COLUMN_PAYMENT, payment);
         long result = db.insert(TABLE_NAME,null, cv);
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
@@ -67,12 +81,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(String row_id, String title, String author, String pages){
+    /**データのアップデートを行う関数*/
+    void updateData(String row_id, String payee, String payer, String payment){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_PAYEE, title);
-        cv.put(COLUMN_PAYER, author);
-        cv.put(COLUMN_PAYMENT, pages);
+        cv.put(COLUMN_PAYEE, payee);
+        cv.put(COLUMN_PAYER, payer);
+        cv.put(COLUMN_PAYMENT, payment);
 
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if(result == -1){

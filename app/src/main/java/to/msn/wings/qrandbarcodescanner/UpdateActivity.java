@@ -30,10 +30,10 @@ public class UpdateActivity extends AppCompatActivity {
         update_button = findViewById(R.id.update_button);
         delete_button = findViewById(R.id.delete_button);
 
-        //First we call this
+        /**First we call this*/
         getAndSetIntentData();
 
-        //Set actionbar title after getAndSetIntentData method
+        /**Set actionbar title after getAndSetIntentData method*/
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
             ab.setTitle(payee);
@@ -62,13 +62,13 @@ public class UpdateActivity extends AppCompatActivity {
     void getAndSetIntentData(){
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title") &&
                 getIntent().hasExtra("author") && getIntent().hasExtra("pages")){
-            //Getting Data from Intent
+            /**Getting Data from Intent*/
             id = getIntent().getStringExtra("id");
             payee = getIntent().getStringExtra("title");
             payer = getIntent().getStringExtra("author");
             payment = getIntent().getStringExtra("pages");
 
-            //Setting Intent Data
+            /**Setting Intent Data*/
             payee_input.setText(payee);
             payer_input.setText(payer);
             payment_input.setText(payment);
