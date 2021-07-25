@@ -1,9 +1,11 @@
 package to.msn.wings.qrandbarcodescanner.QRscanner;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,7 +30,12 @@ public class SetDataOfQR extends AppCompatActivity {
         i.putExtra("destination", destination.getText().toString());
         /**決済データである事を示すデータ番号001を追加*/
         i.putExtra("dataType", "001");
-        startActivity(i);
+        if(remittance.length() != 0 && studentNumber.length() != 0 && destination.length() != 0){
+            startActivity(i);
+        }
+        else{
+            Toast.makeText(this, "There is a blank.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**戻るボタン*/
