@@ -19,12 +19,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "PaymentHistory.db";
     private static final int DATABASE_VERSION = 1;
 
+    /**データベースのテーブルの名前*/
     private static final String TABLE_NAME = "my_history";
+
+    /**カラムの定義*/
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_PAYEE = "payee";
     private static final String COLUMN_PAYER = "payer";
     private static final String COLUMN_PAYMENT = "payment";
 
+    /**コンストラクタ*/
     MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -32,22 +36,24 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        /**クエリの定義*/
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_PAYEE + " TEXT, " +
                 COLUMN_PAYER + " TEXT, " +
                 COLUMN_PAYMENT + " INTEGER);";
+
+        /**クエリの実行*/
         db.execSQL(query);
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
-    /**
-     * 現在日時をyyyy/MM/dd HH:mm:ss形式で取得
-     */
+    /**現在日時をyyyy/MM/dd HH:mm:ss形式で取得*/
     public static String getNowDate(){
         final DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         final Date date = new Date(System.currentTimeMillis());
